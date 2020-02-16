@@ -59,4 +59,53 @@ pub fn traits_fun() {
 
     let a = vec![1,2,3];
     println!("sum = {}", a.sum());
+    into_main();
+    drop_trait();
+}
+
+
+struct Person {
+    name: String
+}
+
+impl Person {
+//    fn new(name: &str) -> Person {
+//        Person { name: name.to_string()}
+//    }
+    fn new<S: Into<String>>(name: S) -> Person {
+        Person {name: name.into()}
+    }
+
+    fn new_where<S>(name:S) -> Person where S: Into<String> {
+        Person { name: name.into()}
+    }
+}
+
+fn into_main () {
+    let john = Person::new("John");
+    let name: String = "Jane".to_string();
+    let jane = Person::new(name);
+}
+
+struct Creature {
+    name: String
+}
+
+impl Creature {
+    fn new(name: &str) -> Creature {
+        println!("{} enters the game", name);
+        Creature {name: name.into()}
+    }
+}
+
+impl Drop for Creature {
+    fn drop(&mut self) {
+        println!("{} is dead", self.name);
+    }
+}
+
+fn drop_trait() {
+    let goblin = Creature:: new("Jeff");
+    println!("game proceeds!");
+    drop(goblin);
 }
