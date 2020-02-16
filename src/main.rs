@@ -4,9 +4,21 @@ use std::mem;
 use std::f64::consts::PI;
 use crate::stack_heap::stack_and_heap;
 use crate::control_flow::{if_statement, while_and_loop};
+use crate::data_structure::{structures, enums};
+use crate::pattern_matching::pattern_match;
+use crate::generics::generic;
+use crate::functions::print_value;
+use crate::traits::traits_fun;
+use crate::trait_as_parameters::trait_as_param_main;
 
 mod stack_heap;
 mod control_flow;
+mod data_structure;
+mod pattern_matching;
+mod generics;
+mod functions;
+mod traits;
+mod trait_as_parameters;
 // type annotation is must here.!!
 const MEANING_OF_LIFE:u8 = 42;  //  Gotcha, there is no fixed address.
 // So if go ahead and print something like
@@ -27,6 +39,13 @@ fn main() {
     stack_and_heap();
     if_statement();
     while_and_loop();
+    structures();
+    enums();
+    pattern_match();
+    generic();
+    print_value(33);
+    traits_fun();
+    trait_as_param_main();
 
 }
 

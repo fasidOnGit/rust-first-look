@@ -41,6 +41,7 @@ pub fn while_and_loop() {
 pub fn for_loop() {
     println!("For Loop");
     // 1..11 , the .. fetches all the number within the range EXCLUDING 11. whereas 1...11 is INCLUSIVE of 11.
+    // alright INCLUSIVENESS can also be acheived by 1..=11
     for x in 1..11 {
         println!("x = {}", x);
     }
@@ -59,7 +60,7 @@ pub fn match_statement() {
         91 => "India",
         44 => "UK",
         7 => "Russia",
-        1...999 => "unknown",
+        1..=999 => "unknown",
         _ => "invalid" // pretty much the default in switch!
     };
     println!("the country with code{} is {}", country_code, country);
