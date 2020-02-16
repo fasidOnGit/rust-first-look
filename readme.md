@@ -29,3 +29,6 @@ let a:u8 = 123;
 
 The values that are created in rust (say for ex `let a:u8 = 123`) are immutable. You can re-assign!
 use **mut** keyword necessary to let know rust that the variable is mutable.
+
+
+Ok read the code. which more expersive than writing here!
