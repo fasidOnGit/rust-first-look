@@ -1,8 +1,12 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
 use std::mem;
 use std::f64::consts::PI;
 use crate::stack_heap::stack_and_heap;
+use crate::control_flow::{if_statement, while_and_loop};
 
 mod stack_heap;
+mod control_flow;
 // type annotation is must here.!!
 const MEANING_OF_LIFE:u8 = 42;  //  Gotcha, there is no fixed address.
 // So if go ahead and print something like
@@ -21,6 +25,8 @@ fn main() {
         println!("{}", AA); // You are promising that you are not messing things up. which is why we specify `unsafe`
     }
     stack_and_heap();
+    if_statement();
+    while_and_loop();
 
 }
 
