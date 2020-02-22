@@ -1,5 +1,7 @@
-trait Animal {
-    fn create(name: &'static str) -> Self;
+// Pretty much like a Abstract class. where we could have function with implmentation or just defenition.
+// the Structs that are implementing it should implement all the functions defined.
+pub trait Animal {
+    fn create(name: &'static str) -> Self where Self: Sized;
     fn name(&self) -> &'static str;
     fn talk(&self) { println!("Default Implementation - {} cannot talk", self.name())}
 }
@@ -16,11 +18,11 @@ impl Summable<i32> for Vec<i32> {
     }
 }
 
-struct Human {
+pub struct Human {
     name: &'static str
 }
 
-struct Cat {
+pub struct Cat {
     name: &'static str
 }
 

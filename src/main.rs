@@ -10,6 +10,12 @@ use crate::generics::generic;
 use crate::functions::print_value;
 use crate::traits::traits_fun;
 use crate::trait_as_parameters::trait_as_param_main;
+use crate::operator_overloading::op_overload;
+use crate::dispatch::dispatch_invocation;
+use crate::vec_of_diff_types::vec_diff_types;
+use crate::owenership::ownership_func;
+use crate::circular_references::circular_references_func;
+use crate::extern_crate::crates;
 
 mod stack_heap;
 mod control_flow;
@@ -19,6 +25,13 @@ mod generics;
 mod functions;
 mod traits;
 mod trait_as_parameters;
+mod operator_overloading;
+mod dispatch;
+mod vec_of_diff_types;
+mod owenership;
+mod circular_references;
+mod extern_crate;
+
 // type annotation is must here.!!
 const MEANING_OF_LIFE:u8 = 42;  //  Gotcha, there is no fixed address.
 // So if go ahead and print something like
@@ -28,7 +41,6 @@ static mut AA:i32 = 123;
 
 fn main() {
     integral_types();
-    string_types();
     bool_types();
     operators();
     scope_shadowing();
@@ -46,7 +58,13 @@ fn main() {
     print_value(33);
     traits_fun();
     trait_as_param_main();
-
+    string_types();
+    op_overload();
+    dispatch_invocation();
+    vec_diff_types();
+    ownership_func();
+    circular_references_func();
+    crates();
 }
 
 fn operators() {
